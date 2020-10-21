@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="ProjectId" id="1j3SpTt6mvjh024eqlmrz3yVTTC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/lib" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.unkeyed">
+    <configuration name="keyed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/lib/index.test.js" />
+      <test-names>
+        <test-name value="keyed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="unkeyed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/lib/index.test.js" />
+      <test-names>
+        <test-name value="unkeyed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="_publish" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="_publish" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm._publish" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="Jest.unkeyed" />
+        <item itemvalue="Jest.keyed" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="" />
+      <created>1603031465776</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603031465776</updated>
+      <workItem from="1603031467029" duration="52846000" />
+      <workItem from="1603203866587" duration="21492000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial">
+      <created>1603037642941</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603037642941</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial">
+      <created>1603037739580</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603037739580</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: add domux.model">
+      <created>1603081373016</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603081373016</updated>
+    </task>
+    <task id="LOCAL-00004" summary="chore: update readme.md">
+      <created>1603082577989</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603082577989</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chore: add subscribe method for Model accessor">
+      <created>1603089034376</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603089034376</updated>
+    </task>
+    <task id="LOCAL-00006" summary="chore: add subscribe method for Model accessor">
+      <created>1603093257366</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603093257366</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: support nested rendering">
+      <created>1603110098577</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603110098577</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: support nested rendering">
+      <created>1603112857822</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603112857822</updated>
+    </task>
+    <task id="LOCAL-00009" summary="v1.0.0">
+      <created>1603188343455</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603188343455</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial" />
+    <MESSAGE value="feat: add domux.model" />
+    <MESSAGE value="chore: update readme.md" />
+    <MESSAGE value="chore: add subscribe method for Model accessor" />
+    <MESSAGE value="feat: support nested rendering" />
+    <MESSAGE value="v1.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.0.0" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603188343370">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603188343370" />
+    <state width="1053" height="466" key="DebuggerActiveHint" timestamp="1603264658987">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="1053" height="466" key="DebuggerActiveHint/0.23.2048.1214@0.23.2048.1214" timestamp="1603264658987" />
+    <state width="2027" height="411" key="GridCell.Tab.0.bottom" timestamp="1603271799649">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.0.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799649" />
+    <state width="2027" height="411" key="GridCell.Tab.0.center" timestamp="1603271799648">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.0.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799648" />
+    <state width="2027" height="411" key="GridCell.Tab.0.left" timestamp="1603271799648">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.0.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799648" />
+    <state width="2027" height="411" key="GridCell.Tab.0.right" timestamp="1603271799648">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.0.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799648" />
+    <state width="2027" height="411" key="GridCell.Tab.1.bottom" timestamp="1603271799649">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.1.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799649" />
+    <state width="2027" height="411" key="GridCell.Tab.1.center" timestamp="1603271799649">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.1.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799649" />
+    <state width="2027" height="411" key="GridCell.Tab.1.left" timestamp="1603271799649">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.1.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799649" />
+    <state width="2027" height="411" key="GridCell.Tab.1.right" timestamp="1603271799649">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.1.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799649" />
+    <state width="2027" height="411" key="GridCell.Tab.2.bottom" timestamp="1603271799650">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.2.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799650" />
+    <state width="2027" height="411" key="GridCell.Tab.2.center" timestamp="1603271799650">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.2.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799650" />
+    <state width="2027" height="411" key="GridCell.Tab.2.left" timestamp="1603271799649">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.2.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799649" />
+    <state width="2027" height="411" key="GridCell.Tab.2.right" timestamp="1603271799650">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.2.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799650" />
+    <state width="2027" height="411" key="GridCell.Tab.3.bottom" timestamp="1603271799650">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.3.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799650" />
+    <state width="2027" height="411" key="GridCell.Tab.3.center" timestamp="1603271799650">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.3.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799650" />
+    <state width="2027" height="411" key="GridCell.Tab.3.left" timestamp="1603271799650">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.3.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799650" />
+    <state width="2027" height="411" key="GridCell.Tab.3.right" timestamp="1603271799650">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state width="2027" height="411" key="GridCell.Tab.3.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799650" />
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603188345023">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603188345023" />
+    <state x="837" y="551" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603037810365">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state x="837" y="551" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603037810365" />
+    <state x="731" y="356" width="586" height="548" key="find.popup" timestamp="1603203739043">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state x="731" y="356" width="586" height="548" key="find.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603203739043" />
+    <state x="843" y="526" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603203811036">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state x="843" y="526" key="git4idea.remote.GitConfigureRemotesDialog/0.23.2048.1214@0.23.2048.1214" timestamp="1603203811036" />
+    <state x="689" y="295" key="run.anything.popup" timestamp="1603175546472">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state x="689" y="295" key="run.anything.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603175546472" />
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603268817541">
+      <screen x="0" y="23" width="2048" height="1214" />
+    </state>
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603268817541" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JavaScriptTestRunnerJest">
+        <watch expression="node.innerHTML" language="JavaScript" />
+        <watch expression="node.className" language="JavaScript" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

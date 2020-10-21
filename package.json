@@ -1,0 +1,70 @@
+{
+  "name": "domk",
+  "version": "0.0.6",
+  "description": "Powerful DOM toolkit",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --runInBand --detectOpenHandles",
+    "build": "babel src --out-dir ./ --source-maps --ignore '**/*.test.js',src/__tests__",
+    "copyTypings": "cp src/lib/*.d.ts ./lib",
+    "_publish": "npm run test && npm run build && npm run copyTypings && npm publish"
+  },
+  "files": [
+    "lib"
+  ],
+  "bugs": {
+    "url": "https://github.com/linq2js/domk/issues"
+  },
+  "homepage": "https://github.com/linq2js/domk#readme",
+  "keywords": [
+    "indexeddb",
+    "localstorage",
+    "local-storage",
+    "sessionstorage",
+    "session-storage",
+    "store",
+    "storage",
+    "offlinestorage",
+    "offline-storage",
+    "asyncstorage",
+    "async-storage",
+    "json"
+  ],
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {},
+  "devDependencies": {
+    "jest": "^26.2.2",
+    "prettier": "^2.0.5",
+    "cross-env": "^7.0.2",
+    "@types/jest": "^25.2.3",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.7.7",
+    "typescript": "^4.0.2",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/runtime": "^7.7.7",
+    "node-fetch": "^2.6.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@typescript-eslint/parser": "^3.7.1",
+    "terminal-kit": "^1.42.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "@testing-library/react": "^10.4.8",
+    "@testing-library/react-hooks": "^3.4.1",
+    "react-test-renderer": "^16.13.1",
+    "babel-jest": "^26.2.2"
+  }
+}

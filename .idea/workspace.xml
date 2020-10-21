@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="">
+    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="chore: adding benchmark section to readme.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +118,7 @@
       <updated>1603031465776</updated>
       <workItem from="1603031467029" duration="52846000" />
       <workItem from="1603203866587" duration="21492000" />
-      <workItem from="1603271806075" duration="9904000" />
+      <workItem from="1603271806075" duration="10651000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603037642941</created>
@@ -217,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603287768963</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="chore: adding benchmark section to readme.md">
+      <created>1603287941072</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1603287941072</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,10 +242,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="chore: adding benchmark section to readme.md" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603287768863">
+    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603288700721">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603287768863" />
+    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603288700721" />
     <state width="1053" height="466" key="DebuggerActiveHint" timestamp="1603264658987">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -306,10 +314,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state width="2027" height="411" key="GridCell.Tab.3.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799650" />
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603287770545">
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603287943020">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603287770545" />
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603287943020" />
     <state x="837" y="551" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603274209176">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -326,10 +334,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="689" y="295" key="run.anything.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603175546472" />
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603287877404">
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603288702256">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603287877404" />
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603288702256" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

@@ -150,10 +150,10 @@ domk
 
 Create a new Domk component with specified options.
 
-- options (optional): A plain object has following properties
-  - model (optional): A function returns current model or a model object
-  - container (optional): A dom node or query selector string. By default, domk uses document as container
-- return value: [Domk component](#domk-component)
+- **options (optional)**: A plain object has following properties
+  - **model (optional)**: A function returns current model or a model object
+  - **container (optional)**: A dom node or query selector string. By default, domk uses document as container
+- **return**: [Domk component](#domk-component)
 
 ```js
 const mutableTodos = [];

@@ -11,6 +11,7 @@ npm install domk --save
 ## Why domk ?
 
 - Domk is made for small and medium projects.
+- No boilerplate, principle, configuration needed.
 - With Domk you can manipulate DOM easier and more flexible.
 - Domk is an alternative for jQuery or static template engines.
 - Domk is very compact, only 3kb after GZiped

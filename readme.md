@@ -180,27 +180,35 @@ An object contains all update specs for specified element
 
 Perform the same as [domk.all](#domkoneselector-updatefn--domkallselector-updatefn) and domk.one
 
-#### Domk.update(model, container)
+#### Domk.update()
 
-#### Domk.update(container)
+- **Domk.update(model, container)**
 
-### domk.model(props)
+- **Domk.update(container)**
 
-### domk.model(props, reducer)
+### domk.model()
 
-### domk.model(reducer)
+- **domk.model(props)**
 
-### domk.nested(modelFn)
+- **domk.model(props, reducer)**
 
-### domk.children(modelFn)
+- **domk.model(reducer)**
 
-### domk.children(modelFn, component)
+### domk.nested()
 
-### domk.children(modelFn, updateFn)
+- domk.nested(modelFn)
 
-### domk.children(modelFn, keyFn, component)
+### domk.children()
 
-### domk.children(modelFn, keyFn, updateFn)
+- domk.children(modelFn)
+
+- domk.children(modelFn, component)
+
+- domk.children(modelFn, updateFn)
+
+- domk.children(modelFn, keyFn, component)
+
+- domk.children(modelFn, keyFn, updateFn)
 
 ### Updating specs
 

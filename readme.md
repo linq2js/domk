@@ -170,7 +170,7 @@ domk({ container: document.body });
 Query single (**domk.one**) or multiple elements (**domk.all**) and apply updating specs to matched elements.
 
 - **selector**: A valid query selector string that can be used to querySelector() and querySelectorAll()
-- **updateFn**: A function retrieves 2 arguments model and context and returns updating specs.
+- **updateFn**: A function retrieves 2 arguments model and context and returns [updating specs](#updating-specs).
 
 ### Domk component
 
@@ -178,7 +178,7 @@ An object contains all update specs for specified element
 
 #### Domk.one(selector, updateFn) & Domk.all(selector, updateFn)
 
-Perform the same as domk.all and domk.one
+Perform the same as [domk.all](#domkoneselector-updatefn--domkallselector-updatefn) and domk.one
 
 #### Domk.update(model, container)
 
@@ -202,7 +202,236 @@ Perform the same as domk.all and domk.one
 
 ### domk.children(modelFn, keyFn, updateFn)
 
-### Update specs
+### Updating specs
+
+A plain object has following properties
+
+#### id
+
+Update element id
+
+```js
+domk.one("div", () => ({ id: "new-id" })).update();
+```
+
+```html
+<div id="new-id"></div>
+```
+
+#### class
+
+Update element class. A value can be string or class map object.
+
+```js
+let isVisible = false;
+domk.one("div.box1", () => ({ class: { hide: !isVisible } })).update();
+domk
+  .one("div.box2", () => ({ class: isVisible ? "visible" : "invisible" }))
+  .update();
+```
+
+```html
+<div class="box1 hide"></div>
+<div class="box2 invisible"></div>
+```
+
+> domk does not remove original classes (box1, box2), it just append updated classes (hide, visible, invisible)
+
+#### style
+
+Update element style. A value can be string or style map object.
+
+```js
+domk.one("div.box1", () => ({ style: "font-weight: bold" })).update();
+domk.one("div.box2", () => ({ style: { opacity: 0.5 } })).update();
+```
+
+```html
+<div class="box1" style="font-weight: bold"></div>
+<div class="box2" style="opacity: 0.5"></div>
+```
+
+> domk does not add browser prefixes automatically
+
+#### selected
+
+Update selected property of option element
+
+#### checked
+
+Update checked property of input element
+
+#### disabled
+
+Update disabled property of input element
+
+#### value
+
+Update value property of input element
+
+#### href
+
+Update href attribute of anchor element
+
+#### text
+
+Update textContent property of html element
+
+```js
+domk.one("div", { text: "<strong>This is formatted text</strong>" }).update();
+```
+
+```html
+<div>&lt;strong&gt;This is formatted text&lt;/strong&gt;</div>
+```
+
+#### html
+
+Update innerHTML property of html element
+
+```js
+domk.one("div", { html: "<strong>This is formatted text</strong>" }).update();
+```
+
+```html
+<div><strong>This is formatted text</strong></div>
+```
+
+#### init
+
+An init value for a current node. Init value can be function, Node object or HTML string.
+
+- **A function** retrieves current node object as first argument.
+- **HTML string**: Node contents will be replaced with given value.
+- **Node object**: Clone of given node will be appended to current node.
+
+```js
+domk
+  .one("div.box1", { init: "<strong>This is formatted text</strong>" })
+  .update();
+
+domk.one("div.box2", { init: document.querySelector("#content") }).update();
+
+const Box3 = domk.one("div.box3", {
+  init(node) {
+    console.log(node.innerHTML); // Box 3 contents
+  },
+});
+
+// init action invoked once
+Box3.update();
+Box3.update();
+Box3.update();
+```
+
+```html
+<div id="content"><button>Click me</button></div>
+
+<div class="box1"><strong>This is formatted text</strong></div>
+
+<div class="box2">
+  <div id="content"><button>Click me</button></div>
+</div>
+
+<div class="box3">Box 3 contents</div>
+```
+
+#### on
+
+Update event listeners
+
+```js
+domk
+  .one("div", {
+    on: {
+      click() {
+        alert("Hi there");
+      },
+      mouseover(e) {
+        console.log("You are hovering", e.target);
+      },
+      mouseout(e) {
+        console.log("You leave", e.target);
+      },
+    },
+  })
+  .update();
+```
+
+#### prop
+
+Update multiple properties at once
+
+```js
+domk.one("button", { prop: { disabled: true, value: "Click me" } }).update();
+```
+
+#### attr
+
+Update multiple attributes at once
+
+```js
+domk.one("a", {
+  attr: {
+    href: "http://google.com",
+    title: "Click me",
+  },
+});
+```
+
+#### children
+
+Update the child node of the current node according to the specified model.
+
+```js
+domk
+  .one(".list1", {
+    children: {
+      model: [1, 2, 3],
+      update: (number) => ({ text: number }),
+    },
+  })
+  .update();
+
+domk
+  .one(".list2", (letters) => ({
+    children: {
+      model: letters,
+      update: (letter) => ({ text: letter }),
+    },
+  }))
+  .update(["A", "B", "C"]);
+```
+
+**Before updating**
+
+```html
+<ul class="list1">
+  <!-- LI element is used to templating -->
+  <li></li>
+</ul>
+
+<ul class="list2">
+  <!-- LI element is used to templating -->
+  <li></li>
+</ul>
+```
+
+**After updating**
+
+```html
+<ul class="list1">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+
+<ul class="list2">
+  <li>A</li>
+  <li>B</li>
+  <li>C</li>
+</ul>
+```
 
 ## Dependencies
 

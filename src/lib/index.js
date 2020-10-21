@@ -288,6 +288,7 @@ function getNodeInitialData(node) {
 function updateNode(node, bindingKey, context, result) {
   const initialData = getNodeInitialData(node);
   const bindingData = getBindingData(node, bindingKey, () => ({
+    initialized: false,
     childTemplate: false,
     nodeMap: {},
   }));
@@ -299,6 +300,7 @@ function updateNode(node, bindingKey, context, result) {
   const keys = Object.keys(result);
 
   // init should run first
+
   if (!bindingData.initialized && "init" in result) {
     bindingData.initialized = true;
     let init = result.init;
@@ -307,7 +309,13 @@ function updateNode(node, bindingKey, context, result) {
       init = init(node);
     }
 
-    if (typeof init !== "undefined" && init !== null) {
+    // multiple init actions can be called with same node but the initial content is applied once
+    if (
+      typeof init !== "undefined" &&
+      init !== null &&
+      !node.__contentInitialized
+    ) {
+      node.__contentInitialized = true;
       if (init && typeof init.cloneNode === "function") {
         node.appendChild(init.cloneNode(true));
       } else {

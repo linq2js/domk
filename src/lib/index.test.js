@@ -1,4 +1,5 @@
 import domk from "./index";
+import model from "../model";
 
 function query(selector, container = document) {
   return container.querySelector(selector);
@@ -13,7 +14,7 @@ beforeEach(() => {
 });
 
 test("counter", () => {
-  const rootModel = domk.model({ count: 0 });
+  const rootModel = model({ count: 0 });
 
   document.body.innerHTML = `
     <h1></h1>
@@ -186,7 +187,7 @@ test("model.dispatch", () => {
   <h1 class="value"></h1>
   `;
   domk({
-    model: domk.model((state = 1, action) => {
+    model: model((state = 1, action) => {
       if (action === "increase") return state + 1;
       if (action === "decrease") return state - 1;
       return state;

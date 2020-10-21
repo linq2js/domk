@@ -1,17 +1,18 @@
 {
   "name": "domk",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Powerful DOM toolkit",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --runInBand --detectOpenHandles",
     "build": "babel src --out-dir ./ --source-maps --ignore '**/*.test.js',src/__tests__",
-    "copyTypings": "cp src/lib/*.d.ts ./lib",
+    "copyTypings": "cp src/lib/*.d.ts ./lib && cp src/model/*.d.ts ./model",
     "_publish": "npm run test && npm run build && npm run copyTypings && npm publish"
   },
   "files": [
-    "lib"
+    "lib",
+    "model"
   ],
   "bugs": {
     "url": "https://github.com/linq2js/domk/issues"

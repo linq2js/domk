@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="">
+    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="chore: improve query performance&#10;chore: improve child node rendering">
+      <change afterPath="$PROJECT_DIR$/src/model/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/index.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/index.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,9 +107,9 @@
       <list>
         <item itemvalue="npm._publish" />
         <item itemvalue="npm.test" />
+        <item itemvalue="npm.build" />
         <item itemvalue="Jest.unkeyed" />
         <item itemvalue="Jest.keyed" />
-        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -117,7 +123,7 @@
       <updated>1603031465776</updated>
       <workItem from="1603031467029" duration="52846000" />
       <workItem from="1603203866587" duration="21492000" />
-      <workItem from="1603271806075" duration="5868000" />
+      <workItem from="1603271806075" duration="9723000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603037642941</created>
@@ -203,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603278354299</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="initial">
+      <created>1603278740272</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1603278740272</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,30 +232,30 @@
     <option name="LAST_COMMIT_MESSAGE" value="initial" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603278354203">
+    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603284276848">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603278354202" />
+    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603284276848" />
     <state width="1053" height="466" key="DebuggerActiveHint" timestamp="1603264658987">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state width="1053" height="466" key="DebuggerActiveHint/0.23.2048.1214@0.23.2048.1214" timestamp="1603264658987" />
-    <state width="2027" height="411" key="GridCell.Tab.0.bottom" timestamp="1603271799649">
+    <state width="2027" height="334" key="GridCell.Tab.0.bottom" timestamp="1603284284744">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="2027" height="411" key="GridCell.Tab.0.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799649" />
-    <state width="2027" height="411" key="GridCell.Tab.0.center" timestamp="1603271799648">
+    <state width="2027" height="334" key="GridCell.Tab.0.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603284284744" />
+    <state width="2027" height="334" key="GridCell.Tab.0.center" timestamp="1603284284743">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="2027" height="411" key="GridCell.Tab.0.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799648" />
-    <state width="2027" height="411" key="GridCell.Tab.0.left" timestamp="1603271799648">
+    <state width="2027" height="334" key="GridCell.Tab.0.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603284284743" />
+    <state width="2027" height="334" key="GridCell.Tab.0.left" timestamp="1603284284743">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="2027" height="411" key="GridCell.Tab.0.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799648" />
-    <state width="2027" height="411" key="GridCell.Tab.0.right" timestamp="1603271799648">
+    <state width="2027" height="334" key="GridCell.Tab.0.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603284284743" />
+    <state width="2027" height="334" key="GridCell.Tab.0.right" timestamp="1603284284744">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="2027" height="411" key="GridCell.Tab.0.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799648" />
+    <state width="2027" height="334" key="GridCell.Tab.0.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603284284744" />
     <state width="2027" height="411" key="GridCell.Tab.1.bottom" timestamp="1603271799649">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -291,10 +304,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state width="2027" height="411" key="GridCell.Tab.3.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603271799650" />
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603278355837">
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603278741756">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603278355837" />
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603278741756" />
     <state x="837" y="551" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603274209176">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -311,10 +324,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="689" y="295" key="run.anything.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603175546472" />
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603275815782">
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603287733966">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603275815782" />
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603287733966" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

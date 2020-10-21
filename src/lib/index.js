@@ -9,6 +9,7 @@ const predefinedProps = {
   value: true,
 };
 const defaultModelSelector = (model) => model;
+let lastQuery;
 let dispatchScopes = 0;
 let pendingUpdates = new Set();
 
@@ -158,81 +159,36 @@ function addDispatcher(updater, context, customDispatch) {
   return context;
 }
 
-class Model {
-  constructor(state = {}, reducer) {
-    if (typeof state === "function") {
-      reducer = state;
-      state = undefined;
-    }
-
-    const listeners = [];
-    let batchUpdate = false;
-    this.getState = () => state;
-    this.subscribe = (listener) => listeners.push(listener);
-
-    function notify() {
-      for (let i = 0; i < listeners.length; i++) {
-        listeners[i](state);
-      }
-    }
-
-    if (typeof state === "object") {
-      Object.keys(state).forEach((key) => {
-        Object.defineProperty(this, key, {
-          get() {
-            return state[key];
-          },
-          set(value) {
-            if (batchUpdate) return;
-
-            if (state[key] === value) return;
-            state = {
-              ...state,
-              [key]: value,
-            };
-            notify();
-          },
-        });
-      });
-    }
-
-    if (typeof reducer === "function" && typeof state === "undefined") {
-      state = reducer(state, { type: "@@init" });
-    }
-
-    this.dispatch = (...args) => {
-      if (!reducer) return;
-      const nextState = reducer(state, ...args);
-      if (nextState !== state) {
-        state = nextState;
-        try {
-          batchUpdate = true;
-          Object.assign(this, state);
-        } finally {
-          batchUpdate = false;
-        }
-        notify();
-      }
-    };
-  }
-}
-
 function query(container, selector, all) {
   if (selector === "this") {
     return [container];
   }
+
+  if (
+    lastQuery &&
+    lastQuery.container === container &&
+    lastQuery.selector === selector &&
+    lastQuery.all === all
+  ) {
+    return lastQuery.result;
+  }
+
+  lastQuery = { container, selector, all };
+
   // auto prepend :scope to selector
   if (/^\s*>/.test(selector)) {
     selector = ":scope " + selector;
   }
 
   if (all) {
-    return Array.from(container.querySelectorAll(selector));
+    return (lastQuery.result = Array.from(
+      container.querySelectorAll(selector)
+    ));
   }
 
   const element = container.querySelector(selector);
-  if (element) return [element];
-  return [];
+  if (element) return (lastQuery.result = [element]);
+  return (lastQuery.result = []);
 }
 
 function createBinding(all, selector, binding) {
@@ -321,6 +277,8 @@ function updateNode(node, bindingKey, context, result) {
       } else {
         node.innerHTML = "" + init;
       }
+
+      lastQuery = undefined;
     }
   }
 
@@ -374,58 +332,65 @@ function updateNode(node, bindingKey, context, result) {
       node.innerHTML = "";
     }
     if (bindingData.childTemplate) {
-      let {
-        key: keyAccessor = defaultKeyAccessor,
-        model: childModels,
-        update,
-      } = result.children;
-      if (update instanceof Component) {
-        update = update._update;
-      }
-
-      if (Array.isArray(childModels)) {
-        const currentNodeMap = {};
-        for (let i = 0; i < childModels.length; i++) {
-          const childModel = childModels[i];
-          const key = keyAccessor(childModel, i);
-          let childNode = bindingData.nodeMap[key];
-          if (!childNode) {
-            childNode = bindingData.childTemplate.cloneNode(true);
-          }
-          currentNodeMap[key] = childNode;
-
-          const currentNode = node.children[i];
-          if (childNode !== currentNode) {
-            node.insertBefore(childNode, currentNode);
-          }
-
-          const childContext = {
-            ...context,
-            parent: context.node,
-            node: childNode,
-          };
-
-          const updateResult = update(childModel, childContext);
-
-          if (
-            typeof updateResult === "object" &&
-            !(updateResult instanceof Component)
-          ) {
-            updateNode(childNode, childNode, childContext, updateResult);
-          }
-        }
-        Object.keys(bindingData.nodeMap).forEach((key) => {
-          if (currentNodeMap[key]) return;
-          const removedNode = bindingData.nodeMap[key];
-          if (removedNode.parentNode === node) {
-            node.removeChild(removedNode);
-          }
-        });
-        // remove unused nodes
-        bindingData.nodeMap = currentNodeMap;
-      }
+      updateChildren(node, bindingData, context, result.children);
     }
   }
+}
+
+function updateChildren(
+  node,
+  bindingData,
+  context,
+  { key: keyAccessor = defaultKeyAccessor, model: childModels, update }
+) {
+  if (update instanceof Component) {
+    update = update._update;
+  }
+  if (!Array.isArray(childModels)) {
+    return;
+  }
+
+  lastQuery = undefined;
+
+  const nodeMap = {};
+  for (let i = 0; i < childModels.length; i++) {
+    const childModel = childModels[i];
+    const key = keyAccessor(childModel, i);
+    let childNode = bindingData.nodeMap[key];
+    if (!childNode) {
+      childNode = bindingData.childTemplate.cloneNode(true);
+    }
+    nodeMap[key] = childNode;
+    delete bindingData.nodeMap[key];
+
+    const currentNode = node.children[i];
+    if (childNode !== currentNode) {
+      node.insertBefore(childNode, currentNode);
+    }
+
+    const childContext = {
+      ...context,
+      parent: context.node,
+      node: childNode,
+    };
+
+    const updateResult = update(childModel, childContext);
+
+    if (
+      typeof updateResult === "object" &&
+      !(updateResult instanceof Component)
+    ) {
+      updateNode(childNode, childNode, childContext, updateResult);
+    }
+  }
+  const oldKeys = Object.keys(bindingData.nodeMap);
+  for (let i = 0; i < oldKeys.length; i++) {
+    const node = bindingData.nodeMap[oldKeys[i]];
+    // if (node.parentNode === node) {
+    node.removeChild(node);
+    // }
+  }
+  bindingData.nodeMap = nodeMap;
 }
 
 function init() {
@@ -486,6 +451,7 @@ function updateStyle(node, prev, value, initial) {
   } else {
     node.style = initial + value;
   }
+  lastQuery = undefined;
 }
 
 function updateClass(node, prev, value, initial) {
@@ -498,6 +464,7 @@ function updateClass(node, prev, value, initial) {
   } else {
     node.className = initial + value;
   }
+  lastQuery = undefined;
 }
 
 function updateProperty(node, prev, name, value) {
@@ -505,6 +472,7 @@ function updateProperty(node, prev, name, value) {
   if (prev[key] === value) return;
   prev[key] = value;
   node[name] = value;
+  lastQuery = undefined;
 }
 
 function updateEvent(node, prev, name, value) {
@@ -519,6 +487,7 @@ function updateAttribute(node, prev, name, value) {
   if (prev[key] === value) return;
   prev[key] = value;
   node.setAttribute(name, value);
+  lastQuery = undefined;
 }
 
 Object.assign(domk, {
@@ -527,9 +496,6 @@ Object.assign(domk, {
   },
   all() {
     return domk().all(...arguments);
-  },
-  model(state) {
-    return new Model(state);
   },
   nested(modelSelector) {
     return function nestedBinding(model, context) {

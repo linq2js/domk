@@ -140,9 +140,14 @@ domk
   .update(cats);
 ```
 
+## Benchmark
+
+- [Domk](https://codesandbox.io/s/fancy-pine-54tv8?file=/src/index.js)
+- [React + Redux](https://codesandbox.io/s/hardcore-glade-ts4q7)
+
 ## Advanced Usages
 
-- [Todo App](https://codesandbox.io/s/domux-todo-2ltcr?file=/src/index.js)
+- [Todo App](https://codesandbox.io/s/domk-todo-2ltcr?file=/src/index.js)
 
 ## References
 
@@ -186,13 +191,13 @@ Perform the same as [domk.all](#domkoneselector-updatefn--domkallselector-update
 
 - **Domk.update(container)**
 
-### domk.model()
+### model()
 
-- **domk.model(props)**
+- **model(props)**
 
-- **domk.model(props, reducer)**
+- **model(props, reducer)**
 
-- **domk.model(reducer)**
+- **model(reducer)**
 
 ### domk.nested()
 

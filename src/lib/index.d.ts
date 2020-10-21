@@ -98,15 +98,8 @@ export interface Component<TModel> extends Bindable<TModel> {
   bind(container: Node);
 }
 
-export interface ModelBase {}
-
-export type Model<T> = T & ModelBase;
-
 export interface DefaultExports extends Bindable<any> {
   <TModel = any>(options?: Options<TModel>): Component<TModel>;
-  model<T extends { [key: string]: any }>(props: T): Model<T>;
-  model<T>(initial: T, reducer: (current: T, ...args: any[]) => T): Model<T>;
-  model<T>(reducer: (current: T, ...args: any[]) => T): Model<T>;
 
   nested(model: BindingDelegate<any>): Binding<any>;
 

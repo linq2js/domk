@@ -1,3 +1,4 @@
+import { doc } from "prettier";
 import domk from "./index";
 import model from "../model";
 
@@ -207,4 +208,47 @@ test("model.dispatch", () => {
   expect(query("h1").innerHTML).toBe("2");
   query(".decrease").click();
   expect(query("h1").innerHTML).toBe("1");
+});
+
+test("ref", () => {
+  document.body.innerHTML = `
+      <div id="app">
+        <button id="b1"></button>
+        <button id="b2"></button>
+        <button id="b3"></button>
+      </div>`;
+  const Button = ({ text }) =>
+    domk({
+      handler(context, update) {
+        return function (action, payload) {
+          if (action === "text") {
+            if (arguments.length > 1) {
+              text = payload;
+              update();
+            } else {
+              return text;
+            }
+          }
+        };
+      },
+    }).one("this", () => ({ text }));
+
+  domk({ container: "#app" })
+    .one("#b1", Button({ text: "button-1" }).ref("b1"))
+    .one("#b2", Button({ text: "button-2" }).ref("b2"))
+    .one("#b3", (model, { invoke }) => ({
+      on: {
+        click() {
+          invoke("b1", "text", "button-1-changed");
+          invoke("b2", "text", "button-2-changed");
+        },
+      },
+    }))
+    .update();
+
+  expect(query("#b1").textContent).toBe("button-1");
+  expect(query("#b2").textContent).toBe("button-2");
+  query("#b3").click();
+  expect(query("#b1").textContent).toBe("button-1-changed");
+  expect(query("#b2").textContent).toBe("button-2-changed");
 });

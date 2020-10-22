@@ -1,7 +1,9 @@
 const defaultContainer = document;
 const templateClassName = "domk-template";
+const hideClassName = "domk-hide";
 const defaultKeyAccessor = (model, index) => index;
 const updateText = (model) => ({ text: model });
+const componentType = "@component";
 const predefinedProps = {
   selected: true,
   disabled: true,
@@ -16,134 +18,164 @@ let pendingUpdates = new Set();
 const predefinedAttrs = {
   id: true,
   href: true,
+  title: true,
 };
 
 export default function domk({
   container = defaultContainer,
   model,
+  handler,
   ...contextProps
 } = {}) {
-  if (typeof container === "string") {
-    container = query(document, container, false)[0] || defaultContainer;
-  }
-  return new Component({ container, model, contextProps });
+  return createComponent({ container, model, handler, contextProps });
 }
 
-class Component {
-  constructor(options) {
-    this._bindings = [];
-    this._options = options;
-    this._unsubscribe = undefined;
+function createComponent(options) {
+  const instance = {
+    _type: componentType,
+    _update,
+    _options: options,
+    update,
+    all,
+    one,
+    ref,
+  };
+  let bindings = [];
+  let unsubscribe;
 
-    // call by another component or internal
-    this._update = (model, context) => {
-      context = {
-        ...options.contextProps,
-        ...context,
-        container: context.node || context.container,
-        component: this,
-        updateContainer: (inputModel = model) =>
-          this._update(inputModel, context),
-      };
-      const bindings = this._bindings;
-      for (let i = 0; i < bindings.length; i++) {
-        bindings[i](model, context);
-      }
-    };
+  function ref(id) {
+    if (!options.handler) return instance;
 
-    this.update = (...args) => {
-      let model, container;
-      if (!args.length) {
-        model = this._options.model;
-        container = this._options.container;
-      } else if (args.length > 1) {
-        [model, container] = args;
-      } else if (args[0] && typeof args[0].cloneNode === "function") {
-        model = this._options.model;
-        container = args[0];
-      } else {
-        model = args[0];
-        container = this._options.container;
-      }
-
-      if (!container) {
-        return;
-      }
-
-      if (typeof model === "function") {
-        model = model();
-      }
-
-      const update = () => this.update(...args);
-      let dynamicModel;
-
-      if (model) {
-        if (typeof model.subscribe === "function") {
-          if (typeof this._unsubscribe === "function") {
-            this._unsubscribe();
-          }
-          dynamicModel = model;
-          this._unsubscribe = dynamicModel.subscribe(() => {
-            const rootModel = dynamicModel.getState();
-            this._update(
-              rootModel,
-              addDispatcher(
-                update,
-                {
-                  update,
-                  rootContainer: container,
-                  rootComponent: this,
-                  container,
-                  rootModel,
-                },
-                dynamicModel.dispatch
-              )
-            );
-          });
-        }
-        if (typeof model.getState === "function") {
-          model = model.getState();
-        }
-      }
-      this._update(
-        model,
-        addDispatcher(
-          update,
-          {
-            update,
-            rootContainer: container,
-            rootComponent: this,
-            container,
-            rootModel: model,
-          },
-          dynamicModel && dynamicModel.dispatch
-        )
+    return function (model, context) {
+      context.state().__handlers[id] = options.handler(
+        context,
+        (inputModel = model) => _update(inputModel, context),
+        model
       );
-
-      return this;
+      _update(model, context);
     };
   }
 
-  one(selector, binding) {
-    this._bindings.push(createBinding(false, selector, binding));
-    return this;
+  function update(...args) {
+    let model, container;
+    if (!args.length) {
+      model = options.model;
+      container = options.container;
+    } else if (args.length > 1) {
+      [model, container] = args;
+    } else if (args[0] && typeof args[0].cloneNode === "function") {
+      model = options.model;
+      container = args[0];
+    } else {
+      model = args[0];
+      container = options.container;
+    }
+
+    if (typeof container === "string") {
+      container = query(document, container, false)[0] || defaultContainer;
+    }
+
+    if (!container) {
+      return;
+    }
+
+    if (typeof model === "function") {
+      model = model();
+    }
+
+    const updater = () => update(...args);
+    let dynamicModel;
+
+    if (model) {
+      if (typeof model.subscribe === "function") {
+        if (typeof unsubscribe === "function") {
+          unsubscribe();
+        }
+        dynamicModel = model;
+        unsubscribe = dynamicModel.subscribe(() => {
+          const rootModel = dynamicModel.getState();
+          _update(
+            rootModel,
+            createComponentContext(
+              updater,
+              {
+                update: updater,
+                rootContainer: container,
+                rootComponent: instance,
+                component: instance,
+                container,
+                rootModel,
+              },
+              dynamicModel.dispatch
+            )
+          );
+        });
+      }
+      if (typeof model.getState === "function") {
+        model = model.getState();
+      }
+    }
+    _update(
+      model,
+      createComponentContext(
+        updater,
+        {
+          update: updater,
+          rootContainer: container,
+          rootComponent: instance,
+          container,
+          rootModel: model,
+          component: instance,
+        },
+        dynamicModel && dynamicModel.dispatch
+      )
+    );
   }
 
-  all(selector, binding) {
-    this._bindings.push(createBinding(true, selector, binding));
-    return this;
+  function _update(model, context) {
+    const newContext = {
+      ...options.contextProps,
+      ...context,
+      container: context.node || context.container,
+      component: instance,
+      updateContainer: (inputModel = model) => _update(inputModel, context),
+    };
+
+    for (let i = 0; i < bindings.length; i++) {
+      bindings[i](model, newContext);
+    }
+    if (options.onUpdate) {
+      options.onUpdate({
+        type: "update",
+        target: instance,
+        container: newContext.container,
+        model,
+      });
+    }
   }
+
+  function one(selector, binding) {
+    bindings.push(createBinding(false, selector, binding));
+    return instance;
+  }
+
+  function all(selector, binding) {
+    bindings.push(createBinding(true, selector, binding));
+    return instance;
+  }
+
+  return instance;
 }
 
-function addDispatcher(updater, context, customDispatch) {
-  context.dispatch = function dispatch() {
+function createComponentContext(updater, props, customDispatch) {
+  props.dispatch = function dispatch() {
     try {
       dispatchScopes++;
       if (typeof customDispatch === "function") {
         return customDispatch(...arguments);
       }
       const [action, payload] = arguments;
-      const result = action(payload, context);
+      const result = action(payload, props);
       if (isPromiseLike(result)) {
         return result.finally(updater);
       }
@@ -151,12 +183,22 @@ function addDispatcher(updater, context, customDispatch) {
       return result;
     } finally {
       dispatchScopes--;
+      if (props.component._options.onDispatch) {
+        props.component._options.onDispatch({
+          type: "dispatch",
+          target: props.component,
+          action: arguments[0],
+          payload: arguments[1],
+          container: props.rootContainer,
+          model: props.rootModel,
+        });
+      }
       if (!dispatchScopes) {
         pendingUpdates.forEach((update) => update());
       }
     }
   };
-  return context;
+  return props;
 }
 
 function query(container, selector, all) {
@@ -191,12 +233,46 @@ function query(container, selector, all) {
   return (lastQuery.result = []);
 }
 
+function createBindingContext(context, node, props) {
+  function state() {
+    return getData(context.container, context.component, () => {
+      return {
+        __handlers: {},
+      };
+    });
+  }
+
+  return {
+    ...context,
+    ...props,
+    node,
+    invoke(id, ...args) {
+      const handler = state().__handlers[id];
+      return handler && handler(...args);
+    },
+    state,
+  };
+}
+
+function isComponent(value) {
+  return value && value._type === componentType;
+}
+
 function createBinding(all, selector, binding) {
-  if (binding instanceof Component) {
+  let modelSelector;
+  if (Array.isArray(binding)) {
+    modelSelector = binding[0];
+    binding = binding[1];
+  }
+  if (isComponent(binding)) {
     return function (model, context) {
+      if (modelSelector) {
+        model = modelSelector(model, context);
+      }
+
       const nodes = query(context.container, selector, all);
       for (let i = 0; i < nodes.length; i++) {
-        binding._update(model, { ...context, node: nodes[i] });
+        binding._update(model, createBindingContext(context, nodes[i]));
       }
     };
   }
@@ -208,24 +284,28 @@ function createBinding(all, selector, binding) {
     const nodes = query(context.container, selector, all);
     for (let i = 0; i < nodes.length; i++) {
       const node = nodes[i];
-      function update(inputModel = model) {
-        const result =
-          binding(inputModel, { ...context, node, updateNode: update }) || {};
-        updateNode(node, bindingFn, context, result);
-      }
 
+      function update(inputModel = model) {
+        const result = binding(
+          inputModel,
+          createBindingContext(context, node, { updateNode: update })
+        );
+        if (typeof result === "object") {
+          updateNode(node, bindingFn, context, result);
+        }
+      }
       update(model);
     }
   };
 }
 
-function getBindingData(node, key, init) {
+function getData(node, key, init) {
   if (!node.__data) {
     node.__data = new WeakMap();
   }
   let data = node.__data.get(key);
   if (!data) {
-    data = init();
+    data = typeof init === "function" ? init() : init || {};
     node.__data.set(key, data);
   }
   return data;
@@ -243,7 +323,7 @@ function getNodeInitialData(node) {
 
 function updateNode(node, bindingKey, context, result) {
   const initialData = getNodeInitialData(node);
-  const bindingData = getBindingData(node, bindingKey, () => ({
+  const bindingData = getData(node, bindingKey, () => ({
     initialized: false,
     childTemplate: false,
     nodeMap: {},
@@ -253,8 +333,6 @@ function updateNode(node, bindingKey, context, result) {
     node.__model = {};
   }
 
-  const keys = Object.keys(result);
-
   // init should run first
 
   if (!bindingData.initialized && "init" in result) {
@@ -262,7 +340,7 @@ function updateNode(node, bindingKey, context, result) {
     let init = result.init;
 
     if (typeof init === "function") {
-      init = init(node);
+      init = init(node, context);
     }
 
     // multiple init actions can be called with same node but the initial content is applied once
@@ -300,8 +378,7 @@ function updateNode(node, bindingKey, context, result) {
     );
   }
 
-  for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
+  for (const key in result) {
     const value = result[key];
     if (predefinedAttrs[key]) {
       updateAttribute(node, node.__model, key, value);
@@ -320,6 +397,9 @@ function updateNode(node, bindingKey, context, result) {
           break;
         case "html":
           node.innerHTML = result.html;
+          break;
+        case "visible":
+          node.classList.toggle(hideClassName, !value);
           break;
       }
     }
@@ -343,7 +423,7 @@ function updateChildren(
   context,
   { key: keyAccessor = defaultKeyAccessor, model: childModels, update }
 ) {
-  if (update instanceof Component) {
+  if (isComponent(update)) {
     update = update._update;
   }
   if (!Array.isArray(childModels)) {
@@ -376,29 +456,26 @@ function updateChildren(
 
     const updateResult = update(childModel, childContext);
 
-    if (
-      typeof updateResult === "object" &&
-      !(updateResult instanceof Component)
-    ) {
+    if (typeof updateResult === "object" && !isComponent(updateResult)) {
       updateNode(childNode, childNode, childContext, updateResult);
     }
   }
   const oldKeys = Object.keys(bindingData.nodeMap);
   for (let i = 0; i < oldKeys.length; i++) {
-    const node = bindingData.nodeMap[oldKeys[i]];
-    // if (node.parentNode === node) {
-    node.removeChild(node);
-    // }
+    const child = bindingData.nodeMap[oldKeys[i]];
+    node.removeChild(child);
   }
   bindingData.nodeMap = nodeMap;
 }
 
-function init() {
+function init(global) {
+  global.domk = domk;
+
   if (!document.querySelector("#domk-styles")) {
     const styleElement = document.createElement("style");
     styleElement.id = "domk-styles";
     styleElement.type = "text/css";
-    const styles = `.${templateClassName} {display: none !important;}`;
+    const styles = `.${templateClassName} {display: none !important;} .${hideClassName} {display: none !important;}`;
     const styleContainer = document.querySelector("head") || document.body;
 
     if (styleElement.styleSheet) {
@@ -444,10 +521,13 @@ function serializeStyle(style) {
 }
 
 function updateStyle(node, prev, value, initial) {
-  if (isEqual(prev.style, value)) return;
+  if (prev.style === value) return;
   prev.style = value;
   if (typeof value === "object") {
-    node.style = initial + serializeStyle(value);
+    for (let key in value) {
+      // noinspection JSUnfilteredForInLoop
+      node.style.setProperty(key, value[key]);
+    }
   } else {
     node.style = initial + value;
   }
@@ -478,8 +558,16 @@ function updateProperty(node, prev, name, value) {
 function updateEvent(node, prev, name, value) {
   const key = "e:" + name;
   if (prev[key] === value) return;
-  prev[key] = value;
-  node["on" + name] = value;
+  // custom event
+  if (key.charAt(0) === "$") {
+    if (prev[key]) {
+      node.removeEventListener(name, prev[key]);
+    }
+    prev[key] = value;
+    node.addEventListener(name, value);
+  } else {
+    node["on" + name] = value;
+  }
 }
 
 function updateAttribute(node, prev, name, value) {
@@ -497,11 +585,12 @@ Object.assign(domk, {
   all() {
     return domk().all(...arguments);
   },
-  nested(modelSelector) {
+  nested(modelSelector, keySelector) {
     return function nestedBinding(model, context) {
       return {
         init: context.container,
         children: {
+          key: keySelector,
           model: modelSelector(model, context),
           update: context.component,
         },
@@ -532,6 +621,44 @@ Object.assign(domk, {
       };
     };
   },
+  html(strings, ...args) {
+    const uid = "i" + Math.floor(Date.now() * Math.random()).toString(36);
+    const tokens = {};
+    return function (container, context) {
+      container.innerHTML = String.raw(
+        strings,
+        ...args.map((arg, index) => {
+          const id = uid + index;
+          let model;
+          let tag = "div";
+          let fn;
+          // [component, model]
+          if (Array.isArray(arg)) {
+            model = arg[1];
+            arg = arg[0];
+          }
+          if (!isComponent(arg)) {
+            return arg;
+          }
+
+          const component = arg;
+          if (component._options.tag) {
+            tag = component._options.tag;
+          }
+          tokens[id] = function (node, context) {
+            component._update(model, { ...context, node });
+          };
+          return `<${tag} id="${id}"></${tag}>`;
+        })
+      );
+
+      for (const id in tokens) {
+        const node = query(container, "#" + id, false)[0];
+        if (!node) continue;
+        tokens[id](node, context);
+      }
+    };
+  },
 });
 
-init();
+init(window);

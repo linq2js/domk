@@ -43,6 +43,7 @@ export interface Context<TModel> {
 
 export interface BindingResult<TModel> {
   id?: any;
+  name?: any;
   class?: Classes | any;
   style?: Styles | any;
   text?: any;
@@ -125,7 +126,10 @@ export interface Component<TModel> extends Bindable<TModel> {
   bind(): void;
   bind(model: TModel, container?: Node);
   bind(container: Node);
-  ref(id: string): Binding<any>;
+  withRef(id: string): Binding<any>;
+  withModel(
+    modelFn: (model?: any, context?: Context<any>) => any
+  ): Binding<any>;
 }
 
 export interface DefaultExports extends Bindable<any> {

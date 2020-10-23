@@ -185,11 +185,11 @@ Query single (**domk.one**) or multiple elements (**domk.all**) and apply updati
 
 An object contains all update specs for specified element
 
-#### Domk.one(selector, updateFn) & Domk.all(selector, updateFn)
+#### .one(selector, updateFn) & Domk.all(selector, updateFn)
 
 Perform the same as [domk.all](#domkoneselector-updatefn--domkallselector-updatefn) and domk.one
 
-#### Domk.update()
+#### .update()
 
 - **Domk.update(model, container)**
 
@@ -225,7 +225,7 @@ A plain object has following properties
 
 #### id
 
-Update element id
+Update element id attribute
 
 ```js
 domk.one("div", () => ({ id: "new-id" })).update();
@@ -234,6 +234,10 @@ domk.one("div", () => ({ id: "new-id" })).update();
 ```html
 <div id="new-id"></div>
 ```
+
+#### name
+
+Update element name attribute
 
 #### class
 

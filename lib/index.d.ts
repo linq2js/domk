@@ -1,9 +1,10 @@
 export interface Options<TModel = any> {
   model?: TModel | (() => TModel);
-  tag: string;
+  tag?: string;
   container?: Node;
   onUpdate?: ComponentHandler<"update">;
   onDispatch?: ComponentHandler<"dispatch">;
+  init?: Function;
   [key: string]: any;
 }
 
@@ -65,12 +66,22 @@ export interface BindingResult<TModel> {
   visible?: any;
 }
 
-export interface ChildrenOptions<TItem, TModel> {
-  key?: (item?: TItem, index?: number) => any;
-  model: TItem[];
+export type ItemInfer<TChildren> = TChildren extends number
+  ? number
+  : TChildren extends Array<infer TItem>
+  ? TItem
+  : never;
+
+export interface ChildrenOptions<TChildren, TModel> {
+  key?: (item?: ItemInfer<TChildren>, index?: number) => any;
+  model: TChildren;
   update:
-    | Component<TItem>
-    | BindingDelegate<TItem, BindingResult<TItem> | void, TModel>;
+    | Component<ItemInfer<TChildren>>
+    | BindingDelegate<
+        ItemInfer<TChildren>,
+        BindingResult<ItemInfer<TChildren>> | void,
+        TModel
+      >;
 }
 
 export type BindingDelegate<
@@ -148,24 +159,40 @@ export interface DefaultExports extends Bindable<any> {
     keyFn: (item?: any, index?: number) => any
   ): Binding<any>;
 
+  children(model: number): Binding<any>;
   children(modelFn: BindingDelegate<any>): Binding<any>;
 
+  children(model: number, component: Component<number>): Binding<any>;
   children(
     modelFn: BindingDelegate<any>,
     component: Component<any>
   ): Binding<any>;
 
   children(
+    model: number,
+    updateFn: BindingDelegate<number, BindingResult<number>>
+  ): Binding<any>;
+  children(
     modelFn: BindingDelegate<any>,
     updateFn: BindingDelegate<any, BindingResult<any>>
   ): Binding<any>;
 
+  children(
+    model: number,
+    keyFn: (item?: number, index?: number) => any,
+    updateFn: BindingDelegate<number, BindingResult<number>>
+  ): Binding<any>;
   children(
     modelFn: BindingDelegate<any>,
     keyFn: (item?: any, index?: number) => any,
     updateFn: BindingDelegate<any, BindingResult<any>>
   ): Binding<any>;
 
+  children(
+    model: BindingDelegate<number>,
+    keyFn: (item?: number, index?: number) => any,
+    component: Component<number>
+  ): Binding<any>;
   children(
     modelFn: BindingDelegate<any>,
     keyFn: (item?: any, index?: number) => any,

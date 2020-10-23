@@ -14,4 +14,13 @@ domk({
       update: null,
     },
   }))
+  .one("span", (model) => ({
+    text: model.count,
+    children: {
+      model: 1,
+      update(item) {
+        return item;
+      },
+    },
+  }))
   .one("span", [(model) => model.count, domk()]);

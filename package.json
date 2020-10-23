@@ -1,6 +1,6 @@
 {
   "name": "domk",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Powerful DOM toolkit",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

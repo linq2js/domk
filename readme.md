@@ -152,6 +152,7 @@ domk
 - [Todo App](https://codesandbox.io/s/domk-todo-2ltcr?file=/src/index.js)
 - [Tree View](https://codesandbox.io/s/domk-tree-view-y9h5h?file=/src/index.js)
 - [Using Redux with Domk](https://codesandbox.io/s/domk-redux-6zy39?file=/src/index.js)
+- [Silky Smooth](https://codesandbox.io/s/domk-silky-smooth-he0ih?file=/src/index.js)
 
 ## References
 

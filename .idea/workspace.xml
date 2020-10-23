@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="feat: improve differ algorithm">
+    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/check.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/check.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/index.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/model/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +121,7 @@
       <updated>1603031465776</updated>
       <workItem from="1603031467029" duration="52846000" />
       <workItem from="1603203866587" duration="21492000" />
-      <workItem from="1603271806075" duration="54094000" />
+      <workItem from="1603271806075" duration="54314000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603037642941</created>
@@ -249,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603379003481</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat: improve differ algorithm">
+      <created>1603446792489</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1603446792489</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,10 +268,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="feat: improve differ algorithm" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603446732659">
+    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603446792340">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603446732659" />
+    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603446792340" />
     <state width="1053" height="466" key="DebuggerActiveHint" timestamp="1603423629070">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -340,10 +340,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state width="2027" height="411" key="GridCell.Tab.3.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603427438902" />
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603379005311">
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603446794040">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603379005311" />
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603446794040" />
     <state x="837" y="551" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603274209176">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -360,10 +360,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="689" y="295" key="run.anything.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603175546472" />
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603445775736">
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603446955604">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603445775736" />
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603446955604" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

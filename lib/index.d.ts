@@ -106,7 +106,11 @@ export type Binding<TModel> = BindingDelegate<TModel, BindingResult<TModel>>;
 export interface Bindable<TModel> {
   one(
     query: QuerySelector,
-    binding: Component<TModel> | Binding<TModel> | BindingResult<TModel>
+    binding:
+      | Component<TModel>
+      | Binding<TModel>
+      | BindingResult<TModel>
+      | string
   ): Component<TModel>;
   one<TModelMapping>(
     query: QuerySelector,
@@ -114,7 +118,11 @@ export interface Bindable<TModel> {
   ): Component<TModel>;
   all(
     query: QuerySelector,
-    binding: Component<TModel> | Binding<TModel> | BindingResult<TModel>
+    binding:
+      | Component<TModel>
+      | Binding<TModel>
+      | BindingResult<TModel>
+      | string
   ): Component<TModel>;
   all<TModelMapping>(
     query: QuerySelector,

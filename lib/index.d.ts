@@ -2,8 +2,9 @@ export interface Options<TModel = any> {
   model?: TModel | (() => TModel);
   tag?: string;
   container?: Node;
-  onUpdate?: ComponentHandler<"update">;
-  onDispatch?: ComponentHandler<"dispatch">;
+  updating?: ComponentHandler<"updating">;
+  updated?: ComponentHandler<"updated">;
+  dispatched?: ComponentHandler<"dispatched">;
   init?: Function;
   [key: string]: any;
 }
@@ -17,6 +18,7 @@ export type ComponentHandler<TType extends string> = EventHandler<{
   payload: any;
   container: Node;
   model: any;
+  context: TType extends "dispatch" ? never : Context<any>;
 }>;
 
 export type Action<TPayload = never, TReturn = void, TContext = never> = (
@@ -82,6 +84,7 @@ export interface ChildrenOptions<TChildren, TModel> {
         BindingResult<ItemInfer<TChildren>> | void,
         TModel
       >;
+  anim?: Animation | Function | Animation[];
 }
 
 export type BindingDelegate<
@@ -113,6 +116,11 @@ export interface Classes {
 export type QuerySelector = "this" | string;
 
 export type Binding<TModel> = BindingDelegate<TModel, BindingResult<TModel>>;
+
+export interface Animation {
+  in?: Function;
+  out?: Function;
+}
 
 export interface Bindable<TModel> {
   one(
@@ -149,6 +157,17 @@ export interface Component<TModel> extends Bindable<TModel> {
   withModel(
     modelFn: (model?: any, context?: Context<any>) => any
   ): Binding<any>;
+}
+
+export interface DynamicValue<T> {}
+
+export interface AsyncValue<T> extends DynamicValue<T> {
+  map<U>(resolved: T, loading?: U | (() => U)): DynamicValue<U>;
+}
+
+export interface AsyncValueOptions<T> {
+  loading?: T | (() => T);
+  error?(reason: any): T;
 }
 
 export interface DefaultExports extends Bindable<any> {
@@ -198,6 +217,8 @@ export interface DefaultExports extends Bindable<any> {
     keyFn: (item?: any, index?: number) => any,
     component: Component<any>
   ): Binding<any>;
+
+  async<T>(promise: Promise<T>, options?: AsyncValueOptions<T>): AsyncValue<T>;
 }
 
 declare const domk: DefaultExports;

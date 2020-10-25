@@ -1,6 +1,6 @@
 {
   "name": "domk",
-  "version": "0.1.1",
+  "version": "0.1.8",
   "description": "Powerful DOM toolkit",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -12,6 +12,7 @@
   "files": [
     "lib",
     "model",
+    "anim",
     "dist"
   ],
   "bugs": {
@@ -38,7 +39,9 @@
   },
   "author": "",
   "license": "ISC",
-  "peerDependencies": {},
+  "peerDependencies": {
+    "gsap": "^3.5.1"
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.7.7",

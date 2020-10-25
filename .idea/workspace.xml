@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="chore:">
-      <change afterPath="$PROJECT_DIR$/anim/tween.js" afterDir="false" />
+    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="feat: add animations">
+      <change afterPath="$PROJECT_DIR$/anim/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anim/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anim/tween.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/index.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,11 +72,11 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="run-demo" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="build-browser" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="run-demo" />
+        <script value="build-browser" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -104,11 +104,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm._publish" />
+        <item itemvalue="npm.build-browser" />
         <item itemvalue="npm.test" />
         <item itemvalue="Jest.keyed" />
-        <item itemvalue="npm._publish" />
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.run-demo" />
       </list>
     </recent_temporary>
   </component>
@@ -122,7 +122,7 @@
       <updated>1603031465776</updated>
       <workItem from="1603031467029" duration="52846000" />
       <workItem from="1603203866587" duration="21492000" />
-      <workItem from="1603271806075" duration="77407000" />
+      <workItem from="1603271806075" duration="84171000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603037642941</created>
@@ -264,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603461238097</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="chore: change diffing algorithm">
+      <created>1603580806997</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1603580806997</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,17 +289,18 @@
     <MESSAGE value="feat: improve differ algorithm" />
     <MESSAGE value="feat: improve diffing algorithm" />
     <MESSAGE value="chore: support num of child for children.model" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: support num of child for children.model" />
+    <MESSAGE value="chore: change diffing algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: change diffing algorithm" />
   </component>
   <component name="WindowStateProjectService">
     <state x="100" y="123" width="1848" height="1014" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1603579019057">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="100" y="123" width="1848" height="1014" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.2048.1214@0.23.2048.1214" timestamp="1603579019057" />
-    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603580784401">
+    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603625287972">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603580784401" />
+    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603625287972" />
     <state width="1053" height="466" key="DebuggerActiveHint" timestamp="1603578955259">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -301,22 +309,22 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="553" y="415" key="FileDocumentManager.FileCacheConflict/0.23.2048.1214@0.23.2048.1214" timestamp="1603552090650" />
-    <state width="1013" height="334" key="GridCell.Tab.0.bottom" timestamp="1603579504619">
+    <state width="1013" height="334" key="GridCell.Tab.0.bottom" timestamp="1603597622508">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="1013" height="334" key="GridCell.Tab.0.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603579504619" />
-    <state width="1013" height="334" key="GridCell.Tab.0.center" timestamp="1603579504618">
+    <state width="1013" height="334" key="GridCell.Tab.0.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603597622508" />
+    <state width="1013" height="334" key="GridCell.Tab.0.center" timestamp="1603597622507">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="1013" height="334" key="GridCell.Tab.0.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603579504618" />
-    <state width="1013" height="334" key="GridCell.Tab.0.left" timestamp="1603579504618">
+    <state width="1013" height="334" key="GridCell.Tab.0.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603597622507" />
+    <state width="1013" height="334" key="GridCell.Tab.0.left" timestamp="1603597622506">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="1013" height="334" key="GridCell.Tab.0.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603579504618" />
-    <state width="1013" height="334" key="GridCell.Tab.0.right" timestamp="1603579504619">
+    <state width="1013" height="334" key="GridCell.Tab.0.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603597622506" />
+    <state width="1013" height="334" key="GridCell.Tab.0.right" timestamp="1603597622507">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="1013" height="334" key="GridCell.Tab.0.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603579504619" />
+    <state width="1013" height="334" key="GridCell.Tab.0.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603597622507" />
     <state width="1013" height="411" key="GridCell.Tab.1.bottom" timestamp="1603579162259">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -365,10 +373,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state width="1013" height="411" key="GridCell.Tab.3.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603579162261" />
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603461239578">
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603580808560">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603461239578" />
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603580808560" />
     <state x="837" y="551" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603274209176">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -385,10 +393,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="689" y="295" key="run.anything.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603175546472" />
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603580785976">
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603625289514">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603580785976" />
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603625289514" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

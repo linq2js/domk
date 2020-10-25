@@ -118,9 +118,11 @@ export type QuerySelector = "this" | string;
 export type Binding<TModel> = BindingDelegate<TModel, BindingResult<TModel>>;
 
 export interface Animation {
-  in?: Function;
-  out?: Function;
+  in?: AnimationInOut;
+  out?: AnimationInOut;
 }
+
+export type AnimationInOut = (node?: Node, key?: any) => any;
 
 export interface Bindable<TModel> {
   one(

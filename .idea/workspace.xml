@@ -4,6 +4,8 @@
     <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anim/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/anim/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +122,7 @@
       <updated>1603031465776</updated>
       <workItem from="1603031467029" duration="52846000" />
       <workItem from="1603203866587" duration="21492000" />
-      <workItem from="1603271806075" duration="101619000" />
+      <workItem from="1603271806075" duration="102441000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603037642941</created>
@@ -283,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603699612787</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="chore: add flip animation">
+      <created>1603702752129</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1603702752129</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,17 +313,18 @@
     <MESSAGE value="chore: change diffing algorithm" />
     <MESSAGE value="feat: add animations" />
     <MESSAGE value="chore: improve diffing algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: improve diffing algorithm" />
+    <MESSAGE value="chore: add flip animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: add flip animation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="100" y="123" width="1848" height="1014" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1603579019057">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="100" y="123" width="1848" height="1014" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.2048.1214@0.23.2048.1214" timestamp="1603579019057" />
-    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603699612679">
+    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603702752041">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603699612679" />
+    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603702752041" />
     <state width="1053" height="466" key="DebuggerActiveHint" timestamp="1603694206266">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -387,10 +397,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state width="1013" height="411" key="GridCell.Tab.3.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603695722652" />
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603699614275">
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603702753514">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603699614275" />
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603702753514" />
     <state x="837" y="551" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603274209176">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -407,10 +417,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="689" y="295" key="run.anything.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603175546472" />
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603701850061">
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603704586999">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603701850061" />
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603704586999" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

@@ -7,6 +7,14 @@ export interface CrossFadeOptions {
   name?: string;
 }
 
-export function fade(options?: FadeOptions): Animation;
+export interface FadeExports extends Function, Animation {
+  (options?: FadeOptions): Animation;
+}
 
-export function crossFade(options?: CrossFadeOptions): Animation;
+export interface CrossFadeExports extends Function, Animation {
+  (options?: CrossFadeOptions): Animation;
+}
+
+export const fade: FadeExports;
+
+export const crossFade: CrossFadeExports;

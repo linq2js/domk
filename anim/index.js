@@ -66,10 +66,10 @@ export function crossFade({ duration = 1, name = "default" } = {}) {
     clearTimeout(item.timer);
     if (item.in && item.out) {
       list.delete(key);
-      const from = getCoords(item.out);
-      const to = getCoords(item.in);
-      const x = to.x - from.x;
-      const y = to.y - from.y;
+      const fromPos = getCoords(item.out);
+      const toPos = getCoords(item.in);
+      const x = toPos.x - fromPos.x;
+      const y = toPos.y - fromPos.y;
       fadeIn(item.in, {
         duration: fadeDuration,
         delay: moveDuration,
@@ -106,13 +106,45 @@ export function crossFade({ duration = 1, name = "default" } = {}) {
       const clone = node.cloneNode(true);
       node.parentNode.insertBefore(clone, node);
       add(key, "out", clone);
+    },
+    flip([from, to]) {
+      const fromPos = getCoords(from);
+      const toPos = getCoords(to);
+
+      const cloneFrom = from.cloneNode(true);
+      from.parentNode.insertBefore(cloneFrom, from);
+      from.classList.add("domk-hide");
+
+      const cloneTo = to.cloneNode(true);
+      to.parentNode.insertBefore(cloneTo, to);
+      to.classList.add("domk-hide");
+
+      gsap.to(cloneFrom, {
+        x: toPos.x - fromPos.x,
+        y: toPos.y - fromPos.y,
+        duration: moveDuration,
+        onComplete() {
+          from.classList.remove("domk-hide");
+          from.parentNode.removeChild(cloneFrom);
+        }
+      });
+      gsap.to(cloneTo, {
+        x: fromPos.x - toPos.x,
+        y: fromPos.y - toPos.y,
+        duration: moveDuration,
+        onComplete() {
+          to.classList.remove("domk-hide");
+          to.parentNode.removeChild(cloneTo);
+        }
+      });
     }
   };
 }
 
 Object.assign(crossFade, {
   in: crossFade().in,
-  out: crossFade().out
+  out: crossFade().out,
+  flip: crossFade().flip
 });
 
 function getCoords(node) {

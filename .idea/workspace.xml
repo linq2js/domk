@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="chore: improve diffing algorithm">
+    <list default="true" id="903bc2ee-5152-43f6-908d-e49b17adf6de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anim/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/anim/index.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anim/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/anim/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/index.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,10 +102,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm._publish" />
         <item itemvalue="npm.test" />
         <item itemvalue="Jest.sort" />
         <item itemvalue="Jest.shorthand event listener" />
-        <item itemvalue="npm._publish" />
         <item itemvalue="npm.build-browser" />
       </list>
     </recent_temporary>
@@ -124,7 +120,7 @@
       <updated>1603031465776</updated>
       <workItem from="1603031467029" duration="52846000" />
       <workItem from="1603203866587" duration="21492000" />
-      <workItem from="1603271806075" duration="100220000" />
+      <workItem from="1603271806075" duration="101619000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603037642941</created>
@@ -280,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603625315650</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="chore: improve diffing algorithm">
+      <created>1603699612787</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1603699612787</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,17 +303,18 @@
     <MESSAGE value="chore: support num of child for children.model" />
     <MESSAGE value="chore: change diffing algorithm" />
     <MESSAGE value="feat: add animations" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add animations" />
+    <MESSAGE value="chore: improve diffing algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: improve diffing algorithm" />
   </component>
   <component name="WindowStateProjectService">
     <state x="100" y="123" width="1848" height="1014" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1603579019057">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="100" y="123" width="1848" height="1014" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.2048.1214@0.23.2048.1214" timestamp="1603579019057" />
-    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603699596577">
+    <state x="631" y="205" key="CommitChangelistDialog2" timestamp="1603699612679">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603699596577" />
+    <state x="631" y="205" key="CommitChangelistDialog2/0.23.2048.1214@0.23.2048.1214" timestamp="1603699612679" />
     <state width="1053" height="466" key="DebuggerActiveHint" timestamp="1603694206266">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -319,22 +323,22 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="553" y="415" key="FileDocumentManager.FileCacheConflict/0.23.2048.1214@0.23.2048.1214" timestamp="1603552090650" />
-    <state width="1013" height="334" key="GridCell.Tab.0.bottom" timestamp="1603697118821">
+    <state width="1013" height="334" key="GridCell.Tab.0.bottom" timestamp="1603699617086">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="1013" height="334" key="GridCell.Tab.0.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603697118821" />
-    <state width="1013" height="334" key="GridCell.Tab.0.center" timestamp="1603697118820">
+    <state width="1013" height="334" key="GridCell.Tab.0.bottom/0.23.2048.1214@0.23.2048.1214" timestamp="1603699617086" />
+    <state width="1013" height="334" key="GridCell.Tab.0.center" timestamp="1603699617086">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="1013" height="334" key="GridCell.Tab.0.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603697118820" />
-    <state width="1013" height="334" key="GridCell.Tab.0.left" timestamp="1603697118819">
+    <state width="1013" height="334" key="GridCell.Tab.0.center/0.23.2048.1214@0.23.2048.1214" timestamp="1603699617086" />
+    <state width="1013" height="334" key="GridCell.Tab.0.left" timestamp="1603699617085">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="1013" height="334" key="GridCell.Tab.0.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603697118819" />
-    <state width="1013" height="334" key="GridCell.Tab.0.right" timestamp="1603697118820">
+    <state width="1013" height="334" key="GridCell.Tab.0.left/0.23.2048.1214@0.23.2048.1214" timestamp="1603699617085" />
+    <state width="1013" height="334" key="GridCell.Tab.0.right" timestamp="1603699617086">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state width="1013" height="334" key="GridCell.Tab.0.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603697118820" />
+    <state width="1013" height="334" key="GridCell.Tab.0.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603699617086" />
     <state width="1013" height="411" key="GridCell.Tab.1.bottom" timestamp="1603695722651">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -383,10 +387,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state width="1013" height="411" key="GridCell.Tab.3.right/0.23.2048.1214@0.23.2048.1214" timestamp="1603695722652" />
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603625317191">
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2" timestamp="1603699614275">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603625317191" />
+    <state x="624" y="370" key="Vcs.Push.Dialog.v2/0.23.2048.1214@0.23.2048.1214" timestamp="1603699614275" />
     <state x="837" y="551" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603274209176">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
@@ -403,10 +407,10 @@
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
     <state x="689" y="295" key="run.anything.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603175546472" />
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603699598051">
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup" timestamp="1603701850061">
       <screen x="0" y="23" width="2048" height="1214" />
     </state>
-    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603699598051" />
+    <state x="689" y="297" width="670" height="676" key="search.everywhere.popup/0.23.2048.1214@0.23.2048.1214" timestamp="1603701850061" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
